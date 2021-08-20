@@ -3,7 +3,7 @@ import threading
 import sys
 import pickle
 
-host = "*********"
+host = "localhost"
 port = 4000
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sock.connect((str(host), int(port)))

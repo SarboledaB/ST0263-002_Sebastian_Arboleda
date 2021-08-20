@@ -3,7 +3,7 @@ import threading
 import sys
 import pickle
 
-host="********"
+host="localhost"
 port=4000
 
 clientes = []
