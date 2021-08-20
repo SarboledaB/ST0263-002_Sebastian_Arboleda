@@ -43,6 +43,6 @@ class HttpHandler(BaseHTTPRequestHandler):
       post_data = json.loads(self.rfile.read(content_length).decode())
 
 if __name__ == "__main__":
-    server_address = ('127.0.0.1', 8000)
+    server_address = (HOST, 8000)
     httpd = HTTPServer(server_address, HttpHandler)
     httpd.serve_forever()
