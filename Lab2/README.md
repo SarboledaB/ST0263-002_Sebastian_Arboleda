@@ -4,7 +4,7 @@
 
 Entregas de Tópicos espaciales en telemática.
 
-## Documentación Laboratio 1
+## Documentación Laboratio 2
 
 Chat con comunicacion por protocolo HTTP
 

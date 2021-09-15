@@ -4,7 +4,7 @@
 
 Entregas de Tópicos espaciales en telemática.
 
-## Documentación Laboratio 1
+## Documentación Laboratio 4
 
 Simulación de un gestor de tareas para procesamiento distribuido
 
