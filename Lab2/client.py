@@ -3,10 +3,12 @@ from http.server import HTTPServer, BaseHTTPRequestHandler
 import http.client
 import threading
 import json
+import sys
 
 CLIENT = 1
-SERVER = "127.0.0.1"
-HOST = "127.0.0.1"
+SERVER = "3.229.172.183"
+HOST = input('IP host: ')
+
 
 class HttpHandler(BaseHTTPRequestHandler):
     
