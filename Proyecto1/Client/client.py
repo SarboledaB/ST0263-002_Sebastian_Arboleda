@@ -41,6 +41,33 @@ def post_value(key, value):
     response = conn.getresponse()
 
 
+def post_delete_value(key, value):
+    params = json.dumps({
+        "key": key,
+        "value": value,
+    })
+    headers = {
+        "Content-type": "application/json",
+        "Accept": "text/plain"
+    }
+    conn = http.client.HTTPConnection(SERVER + PORT)
+    conn.request("POST", "/delete-value", params, headers)
+    response = conn.getresponse()
+
+
+def post_delete_category(key):
+    params = json.dumps({
+        "key": key
+    })
+    headers = {
+        "Content-type": "application/json",
+        "Accept": "text/plain"
+    }
+    conn = http.client.HTTPConnection(SERVER + PORT)
+    conn.request("POST", "/delete-category", params, headers)
+    response = conn.getresponse()
+
+
 def main():
     x = True
     print("====== Bienvenido a la biblioteca ======")
@@ -50,6 +77,8 @@ def main():
         print("Para ver todos los libros seleciona : 1")
         print("Para ver todos los libros por genero seleciona : 2")
         print("Para alamcenar un libro nuevo seleciona : 3")
+        print("Para eliminar un genero seleciona : 4")
+        print("Para eliminar un libro seleciona : 5")
         print("Para salir escribe : salir")
         select = input('->')
         if select == 'salir':
@@ -63,6 +92,13 @@ def main():
             key = input('Genero literario: ')
             value = input('Nombre del libro: ')
             post_value(key, value)
+        elif select == '4':
+            key = input('Genero literario: ')
+            post_delete_category(key)
+        elif select == '5':
+            key = input('Genero literario: ')
+            value = input('Nombre del libro: ')
+            post_delete_value(key, value)
 
     print("Gracias por visitarnos!!!")
 
