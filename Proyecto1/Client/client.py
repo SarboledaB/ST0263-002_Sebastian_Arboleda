@@ -72,13 +72,13 @@ def main():
     x = True
     print("====== Bienvenido a la biblioteca ======")
     print("Estas entrando al software de almacenamiento de libros por genero literario")
-    print("Es software te dara diferentes opciones dependiendo de lo que deses realizar")
+    print("Este software te dara diferentes opciones dependiendo de lo que déses realizar")
     while x:
-        print("Para ver todos los libros seleciona : 1")
-        print("Para ver todos los libros por genero seleciona : 2")
-        print("Para alamcenar un libro nuevo seleciona : 3")
-        print("Para eliminar un genero seleciona : 4")
-        print("Para eliminar un libro seleciona : 5")
+        print("Para ver todos los libros selecciona : 1")
+        print("Para ver todos los libros por genero selecciona : 2")
+        print("Para almacenar un libro nuevo selecciona : 3")
+        print("Para eliminar un genero selecciona : 4")
+        print("Para eliminar un libro selecciona : 5")
         print("Para salir escribe : salir")
         select = input('->')
         if select == 'salir':
