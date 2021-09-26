@@ -7,6 +7,7 @@ import pickle
 
 CLIENTS = {}
 HOST = "127.0.0.1"
+SERVER = "127.0.0.1"
 try:
     fileOpen = open("data_hash_table.pkl", "rb")
     hash_table = pickle.load(fileOpen)
@@ -88,7 +89,7 @@ def get_connection():
         "Accept": "*/*"
     }
     try:
-        conn = http.client.HTTPConnection("127.0.0.1:8000")
+        conn = http.client.HTTPConnection(HOST + ":8000")
         conn.request("GET", "/node-connection")
         response = conn.getresponse().read()
         print(response)
@@ -103,6 +104,6 @@ def get_connection():
 
 if __name__ == "__main__":
     get_connection()
-    server_address = (HOST, 8001)
+    server_address = (HOST, 8000)
     httpd = HTTPServer(server_address, HttpHandler)
     httpd.serve_forever()
