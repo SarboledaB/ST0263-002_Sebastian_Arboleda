@@ -4,8 +4,23 @@ import http.client
 from urllib.parse import urlparse
 import json
 import pickle
+import argparse
 
-HOST = "127.0.0.1"
+DEFAULT_HOST = "127.0.0.1"
+DEFAULT_PORT = 8000
+
+parser = argparse.ArgumentParser(description=('Launch client'))
+
+# Optional field.
+parser.add_argument(
+    '-p', '--port', default=DEFAULT_PORT, required=False, type=int,
+    help=("The Server port, It's set by default as 8000"))
+parser.add_argument(
+    '--host', default=DEFAULT_HOST, required=False,
+    help=("The Server host IP, It's set by default as 127.0.0.1"))
+
+args = parser.parse_args()
+
 try:
     fileOpen = open("data_hash_table.pkl", "rb")
     hash_table = pickle.load(fileOpen)
@@ -167,7 +182,7 @@ class HttpHandler(BaseHTTPRequestHandler):
         }
         for ip in nodes:
             try:
-                conn = http.client.HTTPConnection(ip + ":8001")
+                conn = http.client.HTTPConnection("%s:%d" % (ip, args.port))
                 conn.request("POST", "/", msg, headers)
                 response = conn.getresponse()
             except Exception as err:
@@ -175,6 +190,6 @@ class HttpHandler(BaseHTTPRequestHandler):
 
 
 if __name__ == "__main__":
-    server_address = (HOST, 8000)
+    server_address = (args.host, args.port)
     httpd = HTTPServer(server_address, HttpHandler)
     httpd.serve_forever()
