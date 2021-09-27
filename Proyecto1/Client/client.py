@@ -2,18 +2,17 @@ import http.client
 import json
 import argparse
 
-DEFAULT_SERVER = "34.132.17.165"
 DEFAULT_PORT = 8000
 
 parser = argparse.ArgumentParser(description=('Launch client'))
 
+# Required field.
+parser.add_argument(
+    '-s', '--server', required=True, help=("The Server IP"))
 # Optional field.
 parser.add_argument(
     '-p', '--port', default=DEFAULT_PORT, required=False, type=int,
     help=("The Server port, It's set by default as 8000"))
-parser.add_argument(
-    '-s', '--server', required=True,
-    help=("The Server IP, It's set by default as 127.0.0.1"))
 
 args = parser.parse_args()
 

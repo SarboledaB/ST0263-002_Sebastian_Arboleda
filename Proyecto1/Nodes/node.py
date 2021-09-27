@@ -9,10 +9,12 @@ import argparse
 CLIENTS = {}
 DEFAULT_HOST = "127.0.0.1"
 DEFAULT_PORT = 8000
-DEFAULT_SERVER = "127.0.0.1"
 
 parser = argparse.ArgumentParser(description=('Launch client'))
 
+# Required field.
+parser.add_argument(
+    '-s', '--server', required=True, help=("The Server IP"))
 # Optional field.
 parser.add_argument(
     '-p', '--port', default=DEFAULT_PORT, required=False, type=int,
@@ -20,9 +22,6 @@ parser.add_argument(
 parser.add_argument(
     '--host', default=DEFAULT_HOST, required=False,
     help=("The Node host IP, It's set by default as 127.0.0.1"))
-parser.add_argument(
-    '-s', '--server', default=DEFAULT_SERVER, required=False,
-    help=("The Server IP, It's set by default as 127.0.0.1"))
 
 args = parser.parse_args()
 
