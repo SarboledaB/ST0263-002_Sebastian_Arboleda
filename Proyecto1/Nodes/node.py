@@ -107,7 +107,7 @@ def get_connection():
         "Accept": "*/*"
     }
     try:
-        conn = http.client.HTTPConnection("%s:%d" % (DEFAULT_SERVER, DEFAULT_PORT))
+        conn = http.client.HTTPConnection("%s:%d" % (args.server, args.port))
         conn.request("GET", "/node-connection")
         response = conn.getresponse().read()
         print(response)
@@ -122,6 +122,6 @@ def get_connection():
 
 if __name__ == "__main__":
     get_connection()
-    server_address = (DEFAULT_HOST, DEFAULT_PORT)
+    server_address = (args.host, args.port)
     httpd = HTTPServer(server_address, HttpHandler)
     httpd.serve_forever()
