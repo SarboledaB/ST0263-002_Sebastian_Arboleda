@@ -107,7 +107,7 @@ def get_connection():
         "Accept": "*/*"
     }
     try:
-        conn = http.client.HTTPConnection("%s:%d" % (DEFAULT_HOST, DEFAULT_PORT))
+        conn = http.client.HTTPConnection("%s:%d" % (DEFAULT_SERVER, DEFAULT_PORT))
         conn.request("GET", "/node-connection")
         response = conn.getresponse().read()
         print(response)
