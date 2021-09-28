@@ -82,6 +82,17 @@ Para obtener ayuda sobre la implementación:
 $ python3 Client/client.py -h
 ```
 
+### **Configurar balanceador Nginx**
 
-## **Aclaraciones**
-
+``` bash
+$ sudo apt-get update
+$ sudo apt-get install nginx
+$ sudo apt-get install git
+$ sudo git clone https://github.com/SarboledaB/ST0263-002_Sebastian_Arboleda.git
+$ cd ST0263-002_Sebastian_Arboleda/Proyecto1/Load_balancer
+$ sudo cp ./load-balancer.conf /etc/nginx/conf.d/
+$ sudo rm /etc/nginx/sites-available/default
+$ sudo rm /etc/nginx/sites-enabled/default
+$ sudo nginx -t
+$ sudo systemctl restart nginx
+```
