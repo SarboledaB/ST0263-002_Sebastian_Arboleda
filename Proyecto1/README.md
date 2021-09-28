@@ -1,5 +1,5 @@
 
-# **Laboratio 4 Tópicos Especiales de Telemática.**
+# **Proyecto 1 Tópicos Especiales de Telemática.**
 
 ## **Autores:**
 - **Sebastian Arboleda Botero**
@@ -19,12 +19,6 @@
 
 20.2.2
 
-## **Configuracion inicial**
-
-Es necesario instalar la libreria pika
-```bash
-$ pip install pika
-```
 ## **Ejecución**
 
 
