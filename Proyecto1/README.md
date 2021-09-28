@@ -6,7 +6,7 @@
 - **Anthony Garcia Moncada**
 
 ## **Diagrama de arquitectura**
-![alt text](https://storage.cloud.google.com/st0263-002/Proyecto1Telematica.drawio%20(1).png?authuser=4)
+![alt text](https://storage.googleapis.com/st0263-002/Proyecto1Telematica.drawio%20(1).png)
 
 
 ## **Requerimientos**
