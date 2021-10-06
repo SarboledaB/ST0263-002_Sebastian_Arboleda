@@ -8,7 +8,7 @@ PORT = ":8000"
 
 
 def get_all():
-    conn = http.client.HTTPConnection(SERVER + ":8001")
+    conn = http.client.HTTPConnection("34.134.143.235:8000")
     conn.request("GET", "/all")
     response = conn.getresponse()
     all = json.loads(response.read(1000).decode())
@@ -18,7 +18,7 @@ def get_all():
 
 
 def get_by_key(key):
-    conn = http.client.HTTPConnection(SERVER + ":8001")
+    conn = http.client.HTTPConnection("34.134.143.235:8000")
     conn.request("GET", "/?key=" + key)
     response = conn.getresponse()
     all = json.loads(response.read(1000).decode())
@@ -36,7 +36,7 @@ def post_value(key, value):
         "Content-type": "application/json",
         "Accept": "text/plain"
     }
-    conn = http.client.HTTPConnection(SERVER + PORT)
+    conn = http.client.HTTPConnection("34.122.28.48:8000")
     conn.request("POST", "/", params, headers)
     response = conn.getresponse()
 
@@ -50,7 +50,7 @@ def post_delete_value(key, value):
         "Content-type": "application/json",
         "Accept": "text/plain"
     }
-    conn = http.client.HTTPConnection(SERVER + PORT)
+    conn = http.client.HTTPConnection("34.122.28.48:8000")
     conn.request("POST", "/delete-value", params, headers)
     response = conn.getresponse()
 
@@ -63,7 +63,7 @@ def post_delete_category(key):
         "Content-type": "application/json",
         "Accept": "text/plain"
     }
-    conn = http.client.HTTPConnection(SERVER + PORT)
+    conn = http.client.HTTPConnection("34.122.28.48:8000")
     conn.request("POST", "/delete-category", params, headers)
     response = conn.getresponse()
 

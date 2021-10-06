@@ -7,7 +7,7 @@ import pickle
 
 CLIENTS = {}
 HOST = "127.0.0.1"
-SERVER = "127.0.0.1"
+SERVER = "10.128.0.5"
 try:
     fileOpen = open("data_hash_table.pkl", "rb")
     hash_table = pickle.load(fileOpen)
@@ -89,7 +89,7 @@ def get_connection():
         "Accept": "*/*"
     }
     try:
-        conn = http.client.HTTPConnection(HOST + ":8000")
+        conn = http.client.HTTPConnection("34.122.28.48:8000")
         conn.request("GET", "/node-connection")
         response = conn.getresponse().read()
         print(response)
