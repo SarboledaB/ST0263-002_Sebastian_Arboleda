@@ -23,7 +23,7 @@ def get_all():
     conn = http.client.HTTPConnection("%s:%d" % (args.server, args.port))
     conn.request("GET", "/all")
     response = conn.getresponse()
-    all = json.loads(response.read(1000).decode())
+    all = json.loads(response.read(10000).decode())
     print(all["data"])
 
 # Se obtienen todos los valores dependiendo de la Key
