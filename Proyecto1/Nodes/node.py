@@ -4,10 +4,27 @@ import http.client
 from urllib.parse import urlparse
 import json
 import pickle
+import argparse
 
 CLIENTS = {}
-HOST = "127.0.0.1"
-SERVER = "10.128.0.5"
+DEFAULT_HOST = "127.0.0.1"
+DEFAULT_PORT = 8000
+
+parser = argparse.ArgumentParser(description=('Launch client'))
+
+# Required field.
+parser.add_argument(
+    '-s', '--server', required=True, help=("The Server IP"))
+# Optional field.
+parser.add_argument(
+    '-p', '--port', default=DEFAULT_PORT, required=False, type=int,
+    help=("The Server port, It's set by default as 8000"))
+parser.add_argument(
+    '--host', default=DEFAULT_HOST, required=False,
+    help=("The Node host IP, It's set by default as 127.0.0.1"))
+
+args = parser.parse_args()
+
 try:
     fileOpen = open("data_hash_table.pkl", "rb")
     hash_table = pickle.load(fileOpen)
@@ -89,7 +106,7 @@ def get_connection():
         "Accept": "*/*"
     }
     try:
-        conn = http.client.HTTPConnection("34.122.28.48:8000")
+        conn = http.client.HTTPConnection("%s:%d" % (args.server, args.port))
         conn.request("GET", "/node-connection")
         response = conn.getresponse().read()
         print(response)
@@ -104,6 +121,6 @@ def get_connection():
 
 if __name__ == "__main__":
     get_connection()
-    server_address = (HOST, 8000)
+    server_address = (args.host, args.port)
     httpd = HTTPServer(server_address, HttpHandler)
     httpd.serve_forever()

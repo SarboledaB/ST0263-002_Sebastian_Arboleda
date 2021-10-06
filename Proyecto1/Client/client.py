@@ -1,14 +1,26 @@
 import http.client
 import json
+import argparse
 
-SERVER = "127.0.0.1"
-PORT = ":8000"
+DEFAULT_PORT = 8000
+
+parser = argparse.ArgumentParser(description=('Launch client'))
+
+# Required field.
+parser.add_argument(
+    '-s', '--server', required=True, help=("The Server IP"))
+# Optional field.
+parser.add_argument(
+    '-p', '--port', default=DEFAULT_PORT, required=False, type=int,
+    help=("The Server port, It's set by default as 8000"))
+
+args = parser.parse_args()
 
 # Se obtienen todos los valores Key Value
 
 
 def get_all():
-    conn = http.client.HTTPConnection("34.134.143.235:8000")
+    conn = http.client.HTTPConnection("%s:%d" % (args.server, args.port))
     conn.request("GET", "/all")
     response = conn.getresponse()
     all = json.loads(response.read(1000).decode())
@@ -18,7 +30,7 @@ def get_all():
 
 
 def get_by_key(key):
-    conn = http.client.HTTPConnection("34.134.143.235:8000")
+    conn = http.client.HTTPConnection("%s:%d" % (args.server, args.port))
     conn.request("GET", "/?key=" + key)
     response = conn.getresponse()
     all = json.loads(response.read(1000).decode())
@@ -36,7 +48,7 @@ def post_value(key, value):
         "Content-type": "application/json",
         "Accept": "text/plain"
     }
-    conn = http.client.HTTPConnection("34.122.28.48:8000")
+    conn = http.client.HTTPConnection("%s:%d" % (args.server, args.port))
     conn.request("POST", "/", params, headers)
     response = conn.getresponse()
 
@@ -50,7 +62,7 @@ def post_delete_value(key, value):
         "Content-type": "application/json",
         "Accept": "text/plain"
     }
-    conn = http.client.HTTPConnection("34.122.28.48:8000")
+    conn = http.client.HTTPConnection("%s:%d" % (args.server, args.port))
     conn.request("POST", "/delete-value", params, headers)
     response = conn.getresponse()
 
@@ -63,7 +75,7 @@ def post_delete_category(key):
         "Content-type": "application/json",
         "Accept": "text/plain"
     }
-    conn = http.client.HTTPConnection("34.122.28.48:8000")
+    conn = http.client.HTTPConnection("%s:%d" % (args.server, args.port))
     conn.request("POST", "/delete-category", params, headers)
     response = conn.getresponse()
 
