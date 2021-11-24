@@ -4,7 +4,7 @@
 
 Entregas de Tópicos espaciales en telemática.
 
-## Documentación Cluster ERM - HDFS
+## Documentación Cluster EMR - HDFS
 
 1. Copiamos el dataset.
 ```bash

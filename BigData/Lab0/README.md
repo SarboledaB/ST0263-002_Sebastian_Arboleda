@@ -4,7 +4,7 @@
 
 Entregas de Tópicos espaciales en telemática.
 
-## Documentación Cluster ERM
+## Documentación Cluster EMR
 
 **Creacion del cluster:**
 
