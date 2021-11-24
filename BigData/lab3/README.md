@@ -2,11 +2,12 @@
 
 # Autor: Sebastian Arboleda Botero y Anthony Garcia
 
-Entregas de Tópicos espaciales en telemática.
+Laboratorio 3 Big Data Topicos Especiales de Telemática
 
-## Documentación pyspark
+# Evidencias en S3
 
-**Uso de pyspark desde hdfs y desde s3:**
+- **Salida de los datos del pundo 3.x:** s3://bigdata-telematica/telematica/lab3-2/df_csv/
+# Parte 1
 
 ```bash
 $ pyspark
@@ -18,12 +19,15 @@ $ pyspark
 >>>     print(tupla)
 >>> wc.saveAsTextFile("s3a://bigdata-telematica/telematica/wcout1")
 ```
+
+## Datos en HDFS:
  ![alt text](https://bigdata-telematica.s3.amazonaws.com/imagenes-labs/lab3-1-1.PNG)
 
+## Datos en S3:
   ![alt text](https://bigdata-telematica.s3.amazonaws.com/imagenes-labs/lab3-1-2.PNG)
 
 
-**Uso de pyspark con Jupyterhub:**
+## Uso de pyspark con Jupyterhub:
 ```bash
 %spark.pyspark
 files_rdd = sc.textFile("s3a://bigdata-telematica/telematica/datasets/gutenberg-small/*.txt")
@@ -33,10 +37,11 @@ for tupla in wc.take(10):
     print(tupla)
 wc.saveAsTextFile("s3a://bigdata-telematica/telematica/wcout1")
 ``` 
+## WordCount PySpark:
   ![alt text](https://bigdata-telematica.s3.amazonaws.com/imagenes-labs/lab3-1-3.PNG)
 
-## Uso de pyspark con datos
-
+# Parte 2
+## Replicación del notebook Data_processing_using_PySpark.ipynb con los datos respectivos
 ![alt text](https://bigdata-telematica.s3.amazonaws.com/imagenes-labs/lab3-2-1.PNG)
 
 ![alt text](https://bigdata-telematica.s3.amazonaws.com/imagenes-labs/lab3-2-2.PNG)
@@ -47,3 +52,6 @@ wc.saveAsTextFile("s3a://bigdata-telematica/telematica/wcout1")
 
 ![alt text](https://bigdata-telematica.s3.amazonaws.com/imagenes-labs/lab3-2-5.PNG)
 
+# Parte 3
+## Jupiter notebook:
+[Lab3-2.ipynb](Lab3-2.ipynb)
